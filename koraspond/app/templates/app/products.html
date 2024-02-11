@@ -44,11 +44,13 @@
                       <td>{{ product.brand }}</td>
                       <td>{{ product.category }}</td>
                       <td>{{ product.sub_category }}</td>
+                      {% if extra_fields %}
                       {% with product.extra_fields|parse_json as extra_fields %}
                           {% for key, value in extra_fields.items %}
                               <td class="extra_fiel_value">{% if value %}{{ value }}{% else %}''{% endif %}</td>
                           {% endfor %}
                       {% endwith %}
+                      {% endif %}
                       <td>{{ product.created_at }}</td>
                   </tr>
               {% endfor %}
